@@ -45,7 +45,7 @@ HAVING    AVG(length) >120;
 
 --     Rank films by length (filter out the rows that have nulls or 0s in length column). In your output, only select the columns title, length, and the rank.
 
-SELECT   title, length, ROW_NUMBER() 
+SELECT   title, length, RANK() 
 OVER     (ORDER BY length DESC) as 'rank'
 FROM     sakila.film
 WHERE length IS NOT null AND length > 0
