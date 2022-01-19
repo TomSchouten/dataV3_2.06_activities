@@ -48,5 +48,6 @@ HAVING    AVG(length) >120;
 SELECT   title, length, ROW_NUMBER() 
 OVER     (ORDER BY length DESC) as 'rank'
 FROM     sakila.film
+WHERE length IS NOT null AND length > 0
 ORDER BY length DESC;
 
